@@ -1,0 +1,279 @@
+/*
+ * 公用样式 
+ * */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    overflow: hidden;
+    font-family: arial,sans-serif !important;
+}
+
+a{
+	list-style: none;
+	text-decoration: none;
+}
+body {
+	position: relative;
+}
+input:focus,
+textarea:focus {
+	outline: none;
+}
+
+/*
+ * 清除input,button默认样式
+ * */
+input,button{
+    outline:none;
+}
+
+/*
+ * 最下面一层div样式
+ * */
+.maxBox {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background: url("../images/max_bj.png") no-repeat;
+	background-size: cover;
+	box-shadow: 0 0 500px 400px rgba(25, 25, 112, 0.4) inset;
+}
+
+/*
+ * header样式
+ * */
+header {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	padding: 0.5%;
+}
+
+/*
+ *头部左边样式 
+ * */
+.logoBox{
+	width: 30%;
+	height: 70px;
+	position: absolute;
+	top:0;
+	left: 0;
+	display: flex;
+	align-content: center;
+	padding: 5px 1%;
+}
+.logoBox img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+.logoBox span{
+	height:100%;
+	line-height: 60px;
+	margin-left: 1%;
+	font-size: 20px;
+	color: #00FFFF;
+}
+.logoBox span>b{
+	font-size: 24px;
+	color: white;
+}
+
+/*
+ *头部中间样式 
+ * */
+.centerBox {
+	position: absolute;
+	top: 0;
+	left: 33.3%;
+	width: 33.3%;
+	height: 70px;
+	background: url("../images/center_bj.png") no-repeat;
+	background-size: 100% 100%;
+	padding: 0.5%;
+}
+.centerBox ul {
+	width: 100%;
+	display: flex;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+	justify-content: center;
+	/* 水平居中 */
+	align-items: center;
+	/* 垂直居中 */
+}
+.centerBox ul li {
+	display: flex;
+	text-align: center;
+	float: left;
+	margin: 4px 2.5%;
+	cursor: pointer;
+}
+.centerBox ul li img {
+	width: 100%;
+	height: 100%;
+}
+.timeBox{
+	display:block;
+	width: 100%;
+	text-align: center;
+	margin-top: 15px;
+	color: #00FFFF;
+	font-weight: 500;
+}
+/*
+ *头部右边样式
+ *  */
+.settingBox{
+	width: 25%;
+	height: 70px;
+	padding: 5px 0;
+	box-sizing: border-box;
+	position: absolute;
+	top:0;
+	right: 0;
+	display: flex;
+	align-items: center;
+}
+.settingBox .sfImg{
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+.searchBox{
+	display: inline-block;
+	height: 30px;
+	margin-left: 4%;
+}
+.searchBox input{
+	width: 150%;
+	height: 30px;
+	border-radius: 15px;
+	background: none;
+	border:1px solid #20A8B2;
+	padding-left: 16%;
+	color:#20A8B2;
+	position: relative;
+}
+.searchBox input::-webkit-input-placeholder{
+    color:lightseagreen;
+}
+.searchBox input:-moz-placeholder{
+    color:lightseagreen;
+}
+.searchBox input::-moz-placeholder{
+    color:lightseagreen;
+}
+.searchBox input:-ms-input-placeholder{
+    color:lightseagreen;
+}
+.settingBox>.searchBox>.minSearch{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top:34%;
+	left: 13.5%;
+	background: url(../images/search_min_icon.png) no-repeat;
+	background-size: cover;
+}
+.settingBox #searchMax{
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	margin-left: 22%;
+}
+.settingBox #settingIcon{
+	width: 40px;
+	height: 40px;
+	margin-left: 5%;
+	cursor: pointer;
+}
+/*
+ * 字体样色 
+*/
+.title_clz{
+	color: #F99D0B;
+}
+.title_dcl{
+	color: #C00E24;
+}
+.title_ycl{
+	color: #06FCFC;
+}
+/*
+ * @titleStyle title样式
+*/
+.titleStyle{
+	margin-top:5.5%;
+	margin-right: 2%;
+	text-align: right;
+}
+.titleStyle>span{
+	font-size: 14px;
+	color:rgba(255,255,255,0.6);
+}
+.titleStyle>span>b{
+	font-size: 22px;
+}
+/*
+ * 按钮样式Btn
+ * */
+.dwBtn{
+	border: none;
+	color:white;
+	background: #FE9D01;
+	font-size: 12px;
+	padding: 1px 4px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.xqBtn{
+	border: 1px solid #2E6DB8;
+	color:#2E6DB8;
+	background: none;
+	font-size: 12px;
+	padding: 1px 4px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+/*
+ * table样式设计 
+ * */
+table{
+	width: 98%;
+	margin: auto;
+	border-collapse:separate;
+	 border-spacing:0px 4px;
+}
+table .tableHeader{
+	background-color: #0082FE;
+	color:white;
+	height: 26px;
+	line-height: 26px;
+	font-weight: 100;
+}
+table .tableHeader td{
+	text-align: center;
+}
+table .itemTr{
+	background-color: rgba(11,29,67,0.6);
+	color: white;
+	font-size: 14px;
+	text-align: center;
+}
+table .itemTr td{
+	padding: 1px 0;
+	border: 1px solid rgba(0,0,0,.1);
+}

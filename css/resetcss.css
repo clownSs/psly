@@ -1,0 +1,85 @@
+/* 重置css开始 */
+html,body{height: 100%;overflow: hidden;}
+html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;/* font: 12px "微软雅黑"; */}
+a{text-decoration: none;display: block;}
+li{list-style: none;}
+img{display: block;}
+.clearfix{*zoom: 1;}
+.clearfix:before,.clearfix:after{content: "";display: table;clear: both;}
+/* 重置css结束 */
+
+/* 百度地图样式重置 */
+/*地图标题*/
+.BMap_bubble_title {font-size:13px;font-weight:bold;text-align:left;padding-left:0px;padding-top:0px;border-bottom:1px solid gray;}
+/* 消息内容 */
+/* .BMap_bubble_content {padding-left:5px;padding-top:5px;padding-bottom:10px;} */
+/* 左上角删除按键 */
+.BMap_pop img {top:21px !important;left:311px !important;}
+.BMap_top,
+.BMap_bottom ,
+.BMap_center,
+/* 隐藏边角 */
+.BMap_pop div:nth-child(1) div,
+.BMap_pop div:nth-child(3) ,
+.BMap_pop div:nth-child(5) ,
+.BMap_pop div:nth-child(7) {
+	display:none;
+}
+.BMap_pop div:nth-child(8) {opacity: 0.9;background: url(../images/mapIcon/jiantou3.png) no-repeat;background-size: 100% 100%;
+														width: 50px !important;height: 30px !important;}
+.BMap_pop div:nth-child(8) > img{display: none;}
+	/* 内容 */
+.BMap_pop div:nth-child(9) {background-color:rgba(12, 30, 70, 0.7);border-radius:10px;top: 10px !important;}
+.anchorBL{display: none;}
+
+/* 未处理颜色 */
+.untreated{color: #c30d23!important;}
+/* 处理中颜色 */
+.processing{color: #ff9900!important;}
+/* 前三颜色 */
+.top3{background-color: #FD663F!important;}
+
+/* layui开关按钮重置 */
+.layui-form-switch {
+    position: relative;
+    height: 14px;
+    line-height: 14px;
+	min-width: 25px;
+    width: 25px!important;
+    border: 1px solid #fe9d01;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #b06e00;
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
+	margin-top: -3px;
+}
+.layui-form-switch i {
+    position: absolute;
+    top: 0px;
+	left: 1px;
+	/* margin-left: -4px; */
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    background-color: #fe9d01;
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
+}
+.layui-form-onswitch i {
+    left: 100%;
+    margin-left: -16px;
+    background-color: #4da7fd;
+}
+.layui-form-switch em {
+	margin-left: 13px;
+}
+.layui-form-onswitch {
+	 background-color: #26537d;
+	 border: 1px solid #4da7fd;
+}
+.layui-form-onswitch em {margin-left: -1px;color: #4aa8ff;}
+
+/* 头部导航 */
+#header > .header2 > .titleImg > li > span{font-size: 32px;}
+#header > .header2 > .titleImg > li > span.active-icon:before{color: #01ffff;}

@@ -1,0 +1,64 @@
+/*
+    平山楼宇_安防事件css样式文件
+*/
+
+/* 
+  左边整体样式 
+*/
+.leftBox{
+	border: 1px solid rgba(0,0,0,0.0001);
+	position: absolute;
+	top:6%;
+	left: 0;
+	z-index: 1;
+	width: 26%;
+	height: 92%;
+	padding: 1%;
+	max-height: 95%;
+	overflow:hidden;
+}
+/*
+ 	oneBox样式 
+*/
+.leftBox .oneBox{
+	border: 1px solid rgba(0,0,0,0.0001);
+	width: 100%;
+	height: 20%;
+	background: url(../images/one_bj.png) no-repeat;
+	background-size: 100% 100%;
+}
+/*
+ 	twoBox样式 
+*/
+.leftBox .twoBox{
+	border: 1px solid rgba(0,0,0,0.0001);
+	width: 100%;
+	height: 18.5%;
+	margin: 1% 0;
+	background: url(../images/two_bj.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+/*
+ 	threeBox样式 
+*/
+.leftBox .threeBox{
+	border: 1px solid rgba(0,0,0,0.0001);
+	width: 100%;
+	height: 25%;
+	background: url(../images/three_bj.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+/*
+ 	fourBox样式 
+*/
+.leftBox .fourBox{
+	border: 1px solid rgba(0,0,0,0.0001);
+	width: 100%;
+	height: 38%;
+	margin: 1% 0;
+	background: url(../images/four_bj.png) no-repeat;
+	background-size: 100% 100%;
+}
+

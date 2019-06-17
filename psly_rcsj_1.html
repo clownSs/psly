@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>平山楼宇_日常事件</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" type="text/css" href="./css/resetcss.css"/>
+    <link rel="stylesheet" href="./css/psly_rcsj.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/icons.css"/>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.min.js"></script>
+    <script src='http://api.map.baidu.com/api?v=2.0&ak=1pSTowk3vMReXCQA08ypPGfGoOaZI0qk'></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="conBox">
+			
+		<div id="allmap" style="width: 100%;"></div>
+		
+		<section id="main">
+	        <header id="header" class="clearfix">
+				<div class="header1">
+					<img class="logo" src="./images/school_icon.png" alt="">
+					<h1 class="title1">平山楼宇-</h1>
+					<h2 class="title2">日常事件</h2>
+				</div>
+				<div class="header2 ">
+					<ul class="titleImg clearfix">
+						<li><span class="icon-statistics nav-top " data-href="psly_sjtj.html"></span></li>
+						<li><span class="icon-equipment nav-top " data-href="psly_sbkz.html"></li>
+						<li><span class="icon-camera nav-top " data-href="psly_spfx.html"></li>
+						<li><span class="icon-incident nav-top active-icon" data-href="psly_rcsj.html"></li>
+						<li><span class="icon-emergency_events nav-top " data-href="psly_afsj.html"></li>
+						<li><span class="icon-location nav-top " data-href="psly_tsdw.html"></li>
+						<li><span class="icon-park nav-top " data-href="psly_tcc.html"></li>
+					</ul>
+				</div>
+				<div class="header3">
+					<div class="showBig"></div>
+					<input type="text" placeholder="如阳光国际...">
+					<div class="search_icon"></div>
+					<div class="maxSearch_icon"></div>
+					<div class="Setting_icon"></div>
+					<div class="time">2019年6月6日 星期四 农历五月初四</div>
+				</div>
+			</header>
+			<div class="left" id="content">
+        	<!--评分指数-->
+        	<div class="score">
+        		<div class="title">
+        			评分指数
+        		</div>
+        		<div class="table">
+	        		<table>      
+						<tbody>  
+							<tr>          
+								<td rowspan="2" class="parking">1200</td>
+								<td rowspan="2" class="parking">1000</td>
+								<td rowspan="2" class="parking">200</td>
+								<td class="carType">5座</td>
+								<td class="progress">
+									<span class="bg">
+										<span class="main" id="changedFive"></span>
+									</span>
+									<span class="num" id="percentFive">90%</span>
+								</td> 
+							</tr> 
+							<tr>          
+								<td class="carType">7座</td>
+								<td class="progress">
+									<span class="bg">
+										<span class="main" id="changedSeven"></span>
+									</span>
+									<span class="num" id="percentSeven">8%</span>
+								</td>  
+							</tr> 
+							<tr>          
+								<td class="tips">总车位</td>
+								<td class="tips">已用车位</td> 
+								<td class="tips">剩余车位</td>
+								<td class="carType">7座以上</td>
+								<td class="progress">
+									<span class="bg">
+										<span class="main" id="changedOther"></span>
+									</span>
+									<span class="num" id="percentOther">2%</span>
+								</td>
+							</tr>  
+							
+						</tbody>    
+					</table>
+				</div>
+        	</div>
+        	<!--评分指数-->
+        	<div class="scoreChart">
+        		<div class="title">
+        			评分指数
+        		</div>
+        		<div class="table">
+	        		<table>      
+						<tbody>  
+							<tr>          
+								<td  class="charge">&nbsp;&nbsp;&nbsp;&nbsp;68000</td>
+								<td  class="charge">2200</td>
+								<td  class="charge1"></td>
+								<td  class="btn1">
+									<ul class="Switch">
+										<li>
+											<input type="checkbox" name="Storage" id="date"/>
+											<label for="date"><em></em></label>
+										</li>
+									</ul>
+								</td>
+							</tr> 
+							<tr>          
+								<td class="num">&nbsp;&nbsp;&nbsp;&nbsp;月收费(元)</td>
+								<td class="num">已收费(元)</td> 
+								<td class="charge1"></td>
+								<td >
+									<i class="fa fa-long-arrow-up up" aria-hidden="true"></i>
+									<span class="exponent">10%</span>
+								</td>
+							</tr>  
+							
+						</tbody>    
+					</table>
+				</div>
+        		
+        		<div id="myEchart" style="height:200px;width: 100%;"></div>
+        	</div>
+        
+        	<!--未缴费车辆-->
+        	<div class="unpaid">
+        		<div class="title">未缴费车辆</div>
+        		<div class="search_box">
+        			<img class="search_min_icon" src="./images/search_min_icon.png" alt="">
+	                <input type="text" placeholder="如车辆、时间、名称">
+	            </div>
+	            <div class="item3">
+					<ul>
+						<li>
+							<ul class="titleList clearfix">
+								<li class="long">车牌</li>
+								<li class="long1">姓名</li>
+								<li>车位</li>
+								<li>类型</li>
+								<li>次数 </li>
+								<li>时间 </li>
+								<li class="long1">金额 </li>
+							</ul>
+						</li>
+						<li  v-for="(e, index) in veh" v-if="index<6" :key="index">
+							<ul class="titleList clearfix">
+								<li class="long">{{e.vehNumber}}</li>
+								<li class="long1">罗乐</li>
+								<li>{{100+index}}</li>
+								<li>私人</li>
+								<li>{{1+index}}</li>
+								<li>{{e.vehTotalt}}</li>
+								<li class="long1">￥{{e.vehMoney}}</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+	        	
+        	</div>
+        	<!--充电车辆-->
+        	<div class="chargeCar">
+        		<div class="title">充电车辆</div>
+        		<div class="search_box">
+        			<img class="search_min_icon" src="./images/search_min_icon.png" alt="">
+	                <input type="text" placeholder="如车辆、时间、名称">
+	                <i class="search_min_icon"></i>
+	            </div>
+	            <div class="item3">
+					<ul>
+						<li >
+							<ul class="titleList clearfix">
+								<li class="long">车牌</li>
+								<li class="long1">姓名</li>
+								<li>车位</li>
+								<li>类型</li>
+								<li class="long1">时间 </li>
+								<li class="long1">金额 </li>
+							</ul>
+						</li>
+						<li v-for="(e, index) in veh" v-if="index<4" :key="index">
+							<ul class="titleList clearfix">
+								<li class="long">{{e.vehNumber}}</li>
+								<li class="long1">罗乐</li>
+								<li>{{1000+index}}</li>
+								<li>共享</li>
+								<li class="long1">{{e.vehTotalt}} </li>
+								<li class="long1">￥{{e.vehMoney}} </li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+	        	
+        	</div>
+        	<!--收费统计-->
+        	<div class="chargeChart">
+        		<div class="title">
+        			收费统计
+        		</div>
+        		<div class="table">
+	        		<table>      
+						<tbody>  
+							<tr>          
+								<td  class="charge" style="width: 40.5%;">&nbsp;&nbsp;&nbsp;&nbsp;1000</td>
+								<td  class="charge" style="width: 40.5%;">35</td>
+								<td  class="charge1" style="width: 11%;"></td>
+								<td  class="btn1">
+									<ul class="Switch">
+										<li>
+											<input type="checkbox" name="Storage1" id="date1" />
+											<label for="date1"><em></em></label>
+										</li>
+									</ul>
+								</td>
+							</tr> 
+							<tr>          
+								<td class="num">&nbsp;&nbsp;&nbsp;&nbsp;月用电(KWH)</td>
+								<td class="num">今日用电(KWH)</td> 
+								<td class="charge1"></td>
+								<td ></td>
+							</tr>  
+							
+						</tbody>    
+					</table>
+				</div>
+        		
+        		<div id="myChargeEchart" style="height:200px;width: 100%;"></div>
+        	</div>
+        
+        	
+        </div>
+    	</section>
+	</div>
+</div>
+
+
+<script>
+
+	window.onload= function() {
+		
+		
+		// 头部导航
+		var navTops = document.getElementsByClassName('nav-top')
+		for(var i = 0; i < navTops.length; i++) {
+			navTops[i].index = i
+			navTops[i].onclick = function() {
+				for(var i = 0; i < navTops.length; i++) {
+					navTops[i].classList.remove('active-icon')
+				}
+				this.classList.add('active-icon')
+				window.location.href = this.dataset.href;
+			}
+		}
+		
+		var _widthFive = document.getElementById("percentFive").innerText;
+		document.getElementById("changedFive").style.width = _widthFive;
+		
+		var _widthSeven = document.getElementById("percentSeven").innerText;
+		document.getElementById("changedSeven").style.width = _widthSeven;
+		
+		var _widthOther = document.getElementById("percentOther").innerText;
+		document.getElementById("changedOther").style.width = _widthOther;
+	
+	
+			initMapHeight() // 设置地图的高度
+				function initMapHeight() {
+					var mainNode = document.getElementById('main')
+					var allmap = document.getElementById('allmap')
+					var mH =  mainNode.offsetHeight
+					allmap.style.height = mH+ 20 + 'px'
+				}
+				
+				
+				/** 百度地图开始 踩坑1：百度地图必须放在vue之后，不然无法渲染数据 **/
+				initMap()
+				function initMap() {
+					var point = new BMap.Point(106.374814,29.60782);
+					var map = new BMap.Map("allmap",{minZoom:6,maxZoom:100,mapType:BMAP_HYBRID_MAP,enableMapClick:false});    // 创建Map实例
+					map.centerAndZoom(point, 17);  // 初始化地图,设置中心点坐标和地图级别
+					
+					/**添加地图类型控件*/
+					map.addControl(new BMap.MapTypeControl({
+						mapTypes:[
+							BMAP_NORMAL_MAP,
+							BMAP_HYBRID_MAP
+						]}));	  
+					map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+					/**添加地图类型控件结束*/
+					
+					/*** 自定义控件*/
+					addControlLeft();
+					function addControlLeft() {
+						// 定义一个控件类,即function
+						function zoomControl() {
+							// 默认停靠位置和偏移量
+							this.defaultAnchor = BMAP_ANCHOR_BOTTOM_LEFT;
+							this.defaultOffset = new BMap.Size(0, 20);
+						}
+					
+						// 集成Control类
+						zoomControl.prototype = new BMap.Control();
+						// 实现initialize方法
+						zoomControl.prototype.initialize = function (map) {
+							// 创建一个DOM元素
+							var content = document.getElementById("content");
+							
+							// 添加DOM元素到地图中
+							map.getContainer().appendChild(content);
+							return content;
+						}
+						 // 创建控件
+						var myZoomCtrl = new zoomControl();
+						map.addControl(myZoomCtrl);
+					}
+					
+					addTitle(); // 顶部控件
+				    function addTitle(e,x,y) {
+						function zoomControl() {
+						  this.defaultAnchor = BMAP_ANCHOR_TOP_RIGHT;
+						  this.defaultOffset = new BMap.Size(0, 0);
+						}
+				
+						// 集成Control类
+						zoomControl.prototype = new BMap.Control();
+						// 实现initialize方法
+						zoomControl.prototype.initialize = function (map) {
+						  // 创建一个DOM元素
+						  var div = document.getElementById("header");
+				
+						  // 添加DOM元素到地图中
+						  map.getContainer().appendChild(div);
+						  return div;
+						}
+						// 创建控件
+						var myZoomCtrl = new zoomControl();
+						map.addControl(myZoomCtrl);
+					  }// 自定义控件添加完成
+					/** 自定义控件结束 **/
+					
+					/** 添加圆形遮罩 */
+					var circle = new BMap.Circle(point,5000000,{strokeColor:"blue", fillColor: "#0c1e46", fillOpacity: 0.5,strokeWeight:2, strokeOpacity:0.5});
+					map.addOverlay(circle);            //增加圆
+					circle.disableMassClear() //禁止清除
+					/** 添加圆形遮罩结束 */
+					
+					var opts = {
+						width:320,     // 信息窗口宽度
+						height: 170,     // 信息窗口高度
+						enableMessage: true//设置允许信息窗发送短息
+					};
+					var opts1 = {
+						width:320,     // 信息窗口宽度
+						height: 250,     // 信息窗口高度
+						enableMessage: true//设置允许信息窗发送短息
+					};
+					
+					function Obj(point, str, label, icon) {
+						this.point = point;
+						this.str = str;
+						this.label = label;
+						this.icon = icon;
+					}
+					
+					/** 模板1 */
+					function tlp1(d) {
+						return '<div id="moban" style ="width:298px;height:133px; padding: 25px 10px 10px 10px;position: absolute;bottom: 0;left:0px; border: 1px solid #00d585;border-radius:10px;">' +
+							'<table style="color: #fff; font-size: 14px; margin-left: 20px">' +
+							'<tr><td>异常简述：</td><td id="errsValue">'+d.name+'</td></tr>' +
+							'<tr><td>上报设备：</td><td>'+d.name+'</td></tr>' +
+							'<tr><td>发生时间：</td><td>'+d.name+'</td></tr>' +
+							'</table>' +
+							'</div>'
+					}
+					/** 模板2 */
+					function tlp2(d) {
+						return '<div id="moban" style ="width:298px;height:213px; padding: 25px 10px 10px 10px;position: absolute;bottom: 0;left:0px;border: 1px solid #fd9d02;border-radius:10px;">' +
+							'<table style="color: #fff; font-size: 14px; margin-left: 20px">' +
+							'<tr><td>异常简述：</td><td id="errsValue">'+d.name+'</td></tr>' +
+							'<tr><td>上报设备：</td><td>'+d.name+'</td></tr>' +
+							'<tr><td>发生时间：</td><td>'+d.name+'</td></tr>' +
+							'</table>' +
+							'</div>'
+					}
+					
+					//创建自定义覆盖物图标
+					var myIcon = new BMap.Icon("./images/mapIcon/combustible_gas2.png", new BMap.Size(50,50));
+					var myIcon1 = new BMap.Icon("./images/mapIcon/guard_people2.png", new BMap.Size(50,50));
+					
+					var d = {
+						id : 1,
+						name: '模板测试1'
+					}
+					var d1 = {
+						id : 2,
+						name: '模板测试2'
+					}
+					
+					var info = document.getElementById('info')
+					var ddd = document.getElementById('ddd')
+					var data_1 = [];
+					data_1.push(new Obj(point, tlp1(d), "", myIcon));
+					addMarker(data_1,opts)
+					
+					var marker2 = new BMap.Marker(new BMap.Point(106.377814,29.60782),{icon:myIcon1});  // 创建标注
+					map.addOverlay(marker2);
+					// marker2.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+					addClickHandler(tlp2(d1), marker2, opts1);
+					
+					 //批量添加Marker并添加显示框
+					 function addMarker(data_info, opts) {
+						for (var i = 0; i < data_info.length; i++) {
+						  var marker = new BMap.Marker(data_info[i].point);
+						  marker.setIcon(data_info[i].icon);
+						  var content = data_info[i].str;
+						  if (data_info[i].label) {
+							marker.setLabel(new BMap.Label(data_info[i].label, {offset: new BMap.Size(20, -10)}));
+						  }
+						  map.addOverlay(marker);
+						  marker.setAnimation(BMAP_ANIMATION_BOUNCE)
+						  addClickHandler(content, marker, opts);
+						}
+					  }
+				
+					  function addClickHandler(content, marker, opts) {
+						marker.addEventListener("click", function (e) {
+							openInfo(content, e, opts)
+						  }
+						);
+					  }
+				
+					  function openInfo(content, e, opts) {
+						var p = e.target;
+						var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+						var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象
+						p.openInfoWindow(infoWindow, point); //开启信息窗口
+						map.panTo(point, true)
+					  }
+					  
+				}
+				/** 百度地图结束 **/
+	
+	
+	
+	
+		var myEchart =  document.getElementById('myEchart')
+		var myChargeEchart =  document.getElementById('myChargeEchart')
+		var myChart = '';
+		var myChargeChart = '';
+					
+		// 初始化echarts
+		initEcharts(myEchart)
+		function initEcharts(e) {
+			
+			
+			
+			myChart = echarts.init(e);
+			option = {
+				grid: { // 设置图形大小
+								left: '3%',
+								right: '4%',
+								bottom: '3%',
+								top: '20%',
+								containLabel: true
+							},
+	
+			    tooltip : {// 鼠标移上去显示信息
+			        trigger: 'axis'
+			    },
+			    xAxis : [
+			        {
+			            type : 'category',
+			            boundaryGap : false,
+			            data : ['0','4:00','8:00','12:00','16:00','20:00','24:00'],
+			            axisLabel: {
+									textStyle: {
+										color: '#fff',//坐标值得具体的颜色
+				 
+									}
+								}
+			        }
+			    ],
+			    yAxis : [
+			        {
+			            type : 'value',
+			            axisLabel: {
+								   textStyle: {
+									   color: '#fff'
+								   }
+						}
+	
+			        }
+			    ],
+			    series : [
+			        {
+			            name:'',
+			            type:'line',
+			            data:[0, 100, 550, 2200, 1100, 600, 0]
+			        },
+			        {
+			            name:'',
+			            type:'line',
+			            data:[100, 200, 1100, 2500, 1300, 700, 100]
+			        },
+			    ]
+			};
+			myChart.setOption(option)
+		}
+		
+	
+	
+		// 初始化echarts
+		initChargeEcharts(myChargeEchart)
+		function initChargeEcharts(e) {
+			myChargeChart = echarts.init(e);
+			option = {
+				grid: { // 设置图形大小
+							left: '3%',
+							right: '4%',
+							bottom: '3%',
+							top: '20%',
+							containLabel: true
+						},
+	
+			    tooltip : {// 鼠标移上去显示信息
+			        trigger: 'axis'
+			    },
+			    xAxis : [
+			        {
+			            type : 'category',
+			            boundaryGap : false,
+			            data : ['0','4:00','8:00','12:00','16:00','20:00','24:00'],
+			            axisLabel: {
+									textStyle: {
+										color: '#fff',//坐标值得具体的颜色
+				 
+									}
+								}
+			        }
+			    ],
+			    yAxis : [
+			        {
+			            type : 'value',
+			            axisLabel: {
+								   textStyle: {
+									   color: '#fff'
+								   }
+						}
+	
+			        }
+			    ],
+			    series : [
+			        {
+			            name:'',
+			            type:'line',
+			            data:[0, 12, 18, 20, 22, 24, 0]
+			        },
+			    ]
+			};
+			myChargeChart.setOption(option)
+		}
+		
+		window.onresize = function() {
+			myChargeChart.resize();
+			myChart.resize();
+		}
+		
+	
+	
+	}
+	
+	
+	
+		// 异步请求未缴费车辆
+        // reqVeh(0)
+        function reqVeh(vehState) {
+            $.ajax({
+                type : "GET", //提交方式
+                url : "http://localhost:8080/veh/getVehs",//路径
+                // async: false,
+                data : {
+                    vehState: vehState
+                },//数据，这里使用的是Json格式进行传输
+                success: function(result) {//返回数据根据结果进行相应的处理
+                    if (result) {
+
+
+                        vm.veh = result.data
+                    } else {
+                        console.info("出错")
+                    }
+                },
+            });
+        }
+	
+	
+	
+	
+	
+	
+	
+	/*** ******************************* Vue开始 踩坑3：vue需要放在window.onload函数外，才不会对地图上的控件的点击事件不会造成影响 */
+			var vm;
+			initVue()
+			function initVue() {
+				// 字符串转时间过滤器
+				Vue.filter('dateStr', function (timestamp) {
+					var d = new Date(timestamp );    //根据时间戳生成的时间对象
+					var date =
+						(d.getMonth() + 1) + "-" +
+						(d.getDate()) + " " +
+						(d.getHours()) + ":" +
+						(d.getMinutes()) + ":" +
+						(d.getSeconds());
+					return date
+				})
+				vm = new Vue({
+					el: '#main',
+					data: {
+						veh: []
+					},
+					methods: {
+						fullScreen() {
+							var el = document.documentElement;
+							var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+							if(typeof rfs != "undefined" && rfs) {
+								rfs.call(el);
+							}else{
+								getMsg("浏览器不支持全屏调用，请使用其他浏览器或按F11键切换全屏！");
+								return;
+							}
+						}
+					},
+					
+					// 钩子函数
+					mounted: function () {
+					
+					},
+					// 监听属性
+					watch: {
+						
+					}
+				});
+					
+			}
+			
+			/** ******************************* Vue完 ***************************************/
+		
+</script>
+
+
+</body>
+</html>

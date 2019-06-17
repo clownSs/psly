@@ -1,0 +1,337 @@
+/* 主体样式 */
+#conBox{width: 100%;height: 100%;overflow: auto;}
+#main{width: 100%;}
+
+#mask{width: 100%;background: rgb(12, 30, 70, .5);}
+/* 头部样式开始 */
+#header{width: 100%;height: 65px;position: relative;min-width: 1300px;}
+#header > .header1{width: 33.3333%;height: 100%; float: left;}
+#header > .header1 > .logo{width: 30px;height: 30px;margin-left: 35px;margin-top: 15px;float: left;}
+#header > .header1 > .title1{font-size: 18px;color: white;float: left;margin-top: 17px;margin-left: 5px;}
+#header > .header1 > .title2{font-size: 12px;float: left;margin-top: 20px;color: #00ffff;}
+#header > .header2{width: 33.3333%; float: left;background: url(../images/center_bj.png) no-repeat;
+					background-size: 100% 100%;}
+#header > .header2 > .titleImg{margin: 20px auto; width: 66%;}
+#header > .header2 > .titleImg > li{float: left; width: 14%;cursor: pointer;}
+#header > .header2 > .titleImg > li > img{width: 48%;height: 42px;margin-left: 25%;}
+#header > .header3{width: 33.3333%; float: left;padding-left: 15px;box-sizing: border-box;position: relative;height: 100%;}
+#header > .header3 > .showBig{position: absolute;left: 30px;top: 20px; width: 25px;height: 25px;cursor: pointer;
+						background: url(../images/sf_icon.png)no-repeat;background-size: 100% 100%;}
+#header > .header3 > input{position: absolute;left: 70px;top: 20px;width: 60%;height: 30px;box-sizing: border-box;
+							border-radius: 25px;border: 1px solid lightseagreen;background-color: rgba(0,0,0,0.2);color:lightseagreen;
+							padding-left: 6%;outline:none;}
+#header > .header3 > input::-webkit-input-placeholder{ color:#00ffff;}
+#header > .header3 > .search_icon{position: absolute;left: 78px;top:25px;width: 20px;height: 20px;background: url(../images/search_min_icon.png) no-repeat;
+									background-size: 100% 100%;}
+#header > .header3 > .maxSearch_icon{position: absolute;left: 76%;top: 20px; width: 30px; height: 30px;background: url(../images/search_max_icon.png) no-repeat;
+										background-size: 100% 100%;cursor: pointer;}
+#header > .header3 > .Setting_icon{position: absolute;left: 86%;top: 20px; width: 30px; height: 30px;background: url(../images/setting.png) no-repeat;
+									background-size: 100% 100%;cursor: pointer;}
+#header > .header3 > .time{position: absolute;left: -71%;bottom: -2.5rem;font-size: 14px;color: #00ffff;}
+/* 头部样式结束 */
+#content{width: 24%;margin-left: 16px;display: inline-block;position: relative;transition: 1s width, 1s opacity;}
+
+.left {
+    position: relative;
+    top: 80px;
+    left: 10px;
+    width: 25%;
+    z-index:1;
+    min-width: 320px;
+}
+.score {
+	margin-left: 10px;
+    width: 100%;
+    background: url("../images/table_bj.png") no-repeat;
+    background-size: 100% 100%;
+    z-index:1;
+    padding-top: 0.2%;
+    padding-bottom: 10px;
+}
+
+.score .table{
+	width: 100%;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.score table{
+	width: 100%;
+}
+.score table tr{
+	height: 12px;
+}
+.score .table .parking{
+	width: 12%;
+	height: 12px;
+	margin-left: 5px;
+	font-size: 20px;
+	color: lightskyblue;
+	text-align: left;
+}
+.score .table .tips{
+	font-size: 8px;
+	color:darkgrey;
+	text-align: left;
+}
+.score .table .carType{
+	font-size: 8px;
+	width: 12%;
+	color:darkgrey;
+	text-align:right;
+	
+}
+.score .table .progress{
+	padding-left: 1%;
+	width: 28%;
+	color:darkgrey;
+	text-align:left;
+}
+.score .title{
+	position: absolute;
+	font-size: 10px;
+	width: 28%;
+	height: 20px;
+	text-align: center;
+	color:lightskyblue;
+}
+
+.score .table tr span{
+	display: inline-block;
+	*display: inline-block;
+	zoom:1;
+}
+.score .table tr .bg{
+	width:60%;
+	height:12px;
+	line-height: 10px;
+	border-radius:10px;
+	background:cornflowerblue;
+}
+.score .table tr .main{
+	height:12px;
+	line-height: 10px;
+	border-radius:10px;
+	background:lightskyblue;
+}
+.scoreChart {
+	margin-top: 0.5%;
+	margin-left: 10px;
+    width: 100%;
+    background: url("../images/table_bj.png") no-repeat;
+    background-size: 100% 100%;
+    z-index:1;
+    padding-top: 0.5%;
+}
+.scoreChart .title{
+	font-size: 10px;
+	width: 28%;
+	height: 12%;
+	text-align: center;
+	color:lightskyblue;
+}
+.scoreChart .title .table{
+	margin-left: 10%;
+}
+.scoreChart .table .charge{
+	width: 38%;
+	height: 5%;
+	font-size: 20px;
+	color: lightskyblue;
+}
+.scoreChart .table .charge1{
+	width: 13%;
+	height: 5%;
+	font-size: 20px;
+	color: lightskyblue;
+}
+.scoreChart .table .btn1{
+	width: 20%;
+	height: 5%;
+}
+.scoreChart .table .num{
+	font-size: 8px;
+	color:darkgrey;
+}
+
+
+.scoreChart .table .up,.scoreChart .table .exponent{
+	color: #FD9D02;
+}
+
+.Switch input {
+	display: none;
+}
+.Switch label {
+	width: 50px;
+	background: #0000FF;
+	height: 22px;
+	border-radius: 17px;
+	float: right;
+	/* margin: 8px 10px 0 0; */
+	box-shadow: 0 1px 2px #0000FF inset;
+}
+.Switch label em {
+	width: 60%;
+	height: 20px;
+	float: left;
+	margin: 1px;
+	border-radius: 15px;
+	box-shadow: 2px 3px 10px rgba(0,0,0,.1);
+	background: #FFF;
+	transition: 0.1s;
+}
+.Switch input:checked + label {
+	background: #CCC;
+}
+.Switch input:checked + label em {
+	margin: 1px 1px 1px 20px;
+}
+.Switch input:disabled + label {
+	opacity:0.5;
+}
+
+
+.unpaid{
+	margin-left: 10px;
+    width: 100%;
+    background: url("../images/table_bj.png") no-repeat;
+    background-size: 100% 100%;
+    z-index:1;
+    padding-top: 0.2%;
+    padding-bottom: 10px;
+}
+.unpaid .title{
+	font-size: 10px;
+	width: 28%;
+	height: 12%;
+	text-align: center;
+	color:lightskyblue;
+}
+.unpaid .search_box input{
+	position: relative;
+	margin-top: 5px;
+    height: 30px;
+    width: 90%;
+    border: 1px solid lightseagreen;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    font-size: 18px;
+    background-color: rgba(0,0,0,0.2);
+    color:lightseagreen;
+    padding-left: 6%;
+    box-sizing: border-box;
+}
+.search_box .search_min_icon{
+	position: relative;
+	z-index: 2;
+	left: 6%;
+	top:0px;
+	width: 20px;
+	height: 20px;
+	background: url(../images/search_min_icon.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.unpaid >  .item3 > ul{width: 90%;margin-left: 5%;height: 200px}
+.unpaid >  .item3 > ul > li{width: 100%;height: 25px;background: #0c1e46;margin-top: 3px;color: darkgrey;}
+.unpaid >  .item3 > ul > li:nth-child(1){background: #0082fd;margin-top: 5px;}
+.unpaid >  .item3 > ul > li > .titleList{width: 100%;height: 100%;}
+.unpaid >  .item3 > ul > li > .titleList > li{width: 10%; height: 100%;float: left;font: 14px/25px '微软雅黑';overflow: hidden;text-align: center;}
+.unpaid >  .item3 > ul > li > .titleList > li > span{display: inline-block;width: 36px; height: 16px;border-radius: 15px;
+																text-align: center;margin-top: 1px;font: 8px/15px '微软雅黑';}
+.unpaid >  .item3 > ul > li > .titleList > .long{width: 20%;text-align: left;}	
+.unpaid >  .item3 > ul > li > .titleList > .long1{width: 20%;text-align: center;}	
+.unpaid >  .item3 > ul > li > .titleList > li > span:nth-child(1){background: #fd9d02;}
+.unpaid >  .item3 > ul > li > .titleList > li > span:nth-child(2){border: 1px solid #065fba;}
+.unpaid >  .item3 > ul > li > .titleList > li > .xl_icon{display: inline-block;width: 14px;}
+
+.chargeCar{
+	margin-left: 10px;
+    width: 100%;
+    background: url("../images/table_bj.png") no-repeat;
+    background-size: 100% 100%;
+    z-index:1;
+    padding-top: 0.2%;
+    padding-bottom: 10px;
+}
+.chargeCar .title{
+	font-size: 10px;
+	width: 28%;
+	height: 12%;
+	text-align: center;
+	color:lightskyblue;
+}
+.chargeCar .search_box input{
+	position: relative;
+	margin-top: 5px;
+    height: 30px;
+    width: 90%;
+    border: 1px solid lightseagreen;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    font-size: 18px;
+    background-color: rgba(0,0,0,0.2);
+    color:lightseagreen;
+    padding-left: 6%;
+    box-sizing: border-box;
+}
+
+.chargeCar >  .item3 > ul{width: 90%;margin-left: 5%;height: 150px;}
+.chargeCar >  .item3 > ul > li{width: 100%;height: 25px;background: #0c1e46;margin-top: 3px;color: darkgrey;}
+.chargeCar >  .item3 > ul > li:nth-child(1){background: #0082fd;margin-top: 5px;}
+.chargeCar >  .item3 > ul > li > .titleList{width: 100%;height: 100%;}
+.chargeCar >  .item3 > ul > li > .titleList > li{width: 10%; height: 100%;float: left;font: 14px/25px '微软雅黑';overflow: hidden;text-align: center;}
+.chargeCar >  .item3 > ul > li > .titleList > li > span{display: inline-block;width: 36px; height: 16px;border-radius: 15px;
+																text-align: center;margin-top: 1px;font: 8px/15px '微软雅黑';}
+.chargeCar >  .item3 > ul > li > .titleList > .long{width: 20%;text-align: left;}
+.chargeCar >  .item3 > ul > li > .titleList > .long1{width: 20%;text-align: center;}		
+.chargeCar >  .item3 > ul > li > .titleList > li > span:nth-child(1){background: #fd9d02;}
+.chargeCar >  .item3 > ul > li > .titleList > li > span:nth-child(2){border: 1px solid #065fba;}
+.chargeCar >  .item3 > ul > li > .titleList > li > .xl_icon{display: inline-block;width: 14px;}
+
+.chargeChart {
+	margin-top: 0.5%;
+	margin-left: 10px;
+    width: 100%;
+    background: url("../images/table_bj.png") no-repeat;
+    background-size: 100% 100%;
+    z-index:1;
+    padding-top: 0.5%;
+}
+.chargeChart .title{
+	font-size: 10px;
+	width: 28%;
+	height: 12%;
+	text-align: center;
+	color:lightskyblue;
+}
+.chargeChart .title .table{
+	margin-left: 10%;
+}
+.chargeChart .table .charge{
+	width: 38%;
+	height: 5%;
+	font-size: 20px;
+	color: lightskyblue;
+}
+.chargeChart .table .charge1{
+	width: 10%;
+	height: 5%;
+	font-size: 20px;
+	color: lightskyblue;
+}
+.chargeChart .table .num{
+	font-size: 8px;
+	color:darkgrey;
+}
+.chargeChart .table .status{
+	background: cornflowerblue;
+	color: lightskyblue;
+}
+
+/* 屏幕为1366px */
+@media (max-width: 1740px){
+    #content > .item > li > .item3 > ul > li > .titleList > li > span{display: inline-block;width: 26px;font-size: 8px;}
+}

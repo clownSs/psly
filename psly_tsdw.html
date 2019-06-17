@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>平山楼宇-特殊定位</title>
+		<link rel="stylesheet" type="text/css" href="css/resetcss.css"/>
+		<link rel="stylesheet" type="text/css" href="css/tsdw.css"/>
+		<link rel="stylesheet" type="text/css" href="css/icons.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style1.css" />
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_1235730_ajxlv88cz57.css" />
+		<script src="js/modernizr.custom.63321.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.min.js"></script>
+		<script src='http://api.map.baidu.com/api?v=2.0&ak=1pSTowk3vMReXCQA08ypPGfGoOaZI0qk'></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+	</head>
+	<body>
+		<div id="conBox"> 
+			
+			<div id="allmap" style="width: 100%;"></div> 
+			
+			<section id="main">
+				<header id="header" class="clearfix">
+					<div class="header1">
+						<img class="logo" src="./images/school_icon.png" alt="">
+						<h1 class="title1">平山楼宇-</h1>
+						<h2 class="title2">特殊定位</h2>
+					</div>
+					<div class="header2 ">
+						<ul class="titleImg clearfix">
+							<li><span class="icon-statistics nav-top" data-href="psly_sjtj.html"></span></li>
+							<li><span class="icon-equipment nav-top " data-href="psly_sbkz.html"></li>
+							<li><span class="icon-camera nav-top" data-href="psly_spfx.html"></li>
+							<li><span class="icon-incident nav-top " data-href="psly_rcsj.html"></li>
+							<li><span class="icon-emergency_events nav-top" data-href="psly_afsj.html"></li>
+							<li><span class="icon-location nav-top active-icon" data-href="psly_tsdw.html"></li>
+							<li><span class="icon-park nav-top" data-href="psly_tcc.html"></li>
+						</ul>
+					</div>
+					<div class="header3">
+						<div class="showBig" @click="fullScreen"></div>
+						<input type="text" placeholder="如阳光国际...">
+						<div class="search_icon"></div>
+						<div class="maxSearch_icon"></div>
+						<div class="Setting_icon"></div>
+						<div class="time">2019年6月6日 星期四 农历五月初四</div>
+					</div>
+				</header>
+			
+				<div id="content" class="clearfix">
+					<section id="left">
+						<ul class="item" id="itemUl1">
+							<li class="todayEvents">
+								<h3 class="item1">今日事件</h3>
+								<div class="item2">
+									<ul class="clearfix">
+										<li>失联人员<span> 3 </span></li>
+										<li>监管人员<span> 1597 </span></li>
+										<li>人员总数<span> 1600 </span></li>
+									</ul>
+								</div>
+								<div class="item4">
+									<div>
+										男 <span class="line"></span>
+										<div class="lineUp">
+											<span></span> 60%
+										</div>
+									</div>
+									<div>
+										女 <span class="line"></span>
+										<div class="lineUp">
+											<span></span> 40%
+										</div>
+									</div>
+								</div>
+								<div class="item3" id="echartsTable" style="width: 100%;height:120px;"></div>
+							</li>
+							<li>
+								<h3 class="item1">特殊定位</h3>
+								<div class="item2">
+									<ul class="clearfix">
+										<li>已越界<span> 5 </span></li>
+										<li>未越界<span> 10 </span></li>
+										<li>监管人员<span> 150 </span></li>
+									</ul>
+								</div>
+								<div class="item4">
+									<span></span>
+									<input type="text" placeholder="姓名" />
+								</div>
+								<div class="item3">
+									<ul>
+										<li class="tableTh">
+											<ul class="titleList clearfix">
+												<li>姓名</li>
+												<li>性别</li>
+												<li>状态
+													<img class="xl_icon" src="images/xl_icon.png" />
+												</li>
+												<li>操作 </li>
+											</ul>
+										</li>
+										<li v-for="(e, index) in vis" v-if="index<4" :key="index">
+											<ul class="titleList clearfix">
+												<li class="name">{{e.visName}}</li>
+												<li>{{['','男', '女'][e.visGen]}}</li>
+												<li :class="{untreated:e.visState === 1}">{{['','待处理', '处理中'][e.visState]}}</li>
+												<li>
+													<span>定位</span>
+													<span>详情</span>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<h3 class="item1">安保定位</h3>
+								<div class="item2">
+									<ul class="clearfix">
+										<li>已越界<span> 5 </span></li>
+										<li>未越界<span> 10 </span></li>
+										<li>监管人员<span> 150 </span></li>
+									</ul>
+								</div>
+								<div class="item4"><span></span><input type="text" placeholder="姓名" /></div>
+								<div class="item3">
+									<ul>
+										<li class="tableTh">
+											<ul class="titleList clearfix">
+												<li>姓名</li>
+												<li>性别</li>
+												<li>状态
+													<img class="xl_icon" src="images/xl_icon.png" />
+												</li>
+												<li>操作 </li>
+											</ul>
+										</li>
+										<li v-for="(e, index) in vis" v-if="index<4" :key="index">
+											<ul class="titleList clearfix">
+												<li class="name">{{e.visName}}</li>
+												<li>{{['','男', '女'][e.visGen]}}</li>
+												<li :class="{untreated:e.visState === 1}">{{['','待处理', '处理中'][e.visState]}}</li>
+												<li>
+													<span>定位</span>
+													<span>详情</span>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<h3 class="item1">物业定位</h3>
+								<div class="item2">
+									<ul class="clearfix">
+										<li>已越界<span> 5 </span></li>
+										<li>未越界<span> 10 </span></li>
+										<li>监管人员<span> 150 </span></li>
+									</ul>
+								</div>
+								<div class="item4"><span></span><input type="text" placeholder="姓名" /></div>
+								<div class="item3">
+									<ul>
+										<li class="tableTh">
+											<ul class="titleList clearfix">
+												<li>姓名</li>
+												<li>性别</li>
+												<li>状态
+													<img class="xl_icon" src="images/xl_icon.png" />
+												</li>
+												<li>操作 </li>
+											</ul>
+										</li>
+										<li v-for="(e, index) in vis" v-if="index<4" :key="index">
+											<ul class="titleList clearfix">
+												<li class="name">{{e.visName}}</li>
+												<li>{{['','男', '女'][e.visGen]}}</li>
+								 				<li :class="{untreated:e.visState === 1}">{{['','待处理', '处理中'][e.visState]}}</li>
+												<li>
+													<span>定位</span>
+													<span>详情</span>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+						<span class="btnLeft" id="btnLeft"></span>
+					</section>
+					
+					<section id="middle">
+						<div class="container">
+						    <section class="main clearfix">
+						        <select id="cd-dropdown" name="cd-dropdown" class="cd-select">
+									<option value="-1" > 请选择</option>
+									<option value="1" class="icon-security_personnel"> 安防人员</option>
+						            <option value="1" class="icon-special_people"> 特殊人员</option>
+						            <option value="2" class="icon-staff_people"> 缓刑人员</option>
+						            <option value="3" class="icon-police_car"> 警车</option>
+						            <option value="4" class="icon-Fire-truck"> 消防车</option>
+									<option value="5" class="icon-Official_car"> 公务车</option>
+									<option value="6" class="icon-ambulance"> 救护车</option>
+									<option value="7" class="icon-City_car"> 市政车</option>
+						        </select>
+						    </section>
+						</div>
+					</section>
+					
+					<section id="right">
+						<ul class="item" id="itemUl2">
+							<li>
+								<h3 class="item1">车辆统计</h3>
+								<div class="item2">
+									<ul class="clearfix">
+										<li>未驾驶<span> 33 </span></li>
+										<li>驾驶中<span> 57 </span></li>
+										<li>总车辆<span> 60 </span></li>
+									</ul>
+								</div>
+								<div class="item3">
+									<ul class="echartsList clearfix">
+										<li id="pieChart1"></li>
+										<li id="pieChart2"></li>
+										<li id="pieChart3"></li>
+										<li id="pieChart4"></li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<h3 class="item1">公务车信息</h3>
+								<div class="item4"><span></span><input type="text" placeholder="类别 驾驶人 车牌" /></div>
+								<div class="item3">
+									<ul>
+										<li class="tableTh">
+											<ul class="titleList clearfix">
+												<li>车辆</li>
+												<li>驾驶人</li>
+												<li>车牌</li>
+												<li>状态
+													<img class="xl_icon" src="images/xl_icon.png" />
+												</li>
+												<li>操作 </li>
+											</ul>
+										</li>
+										<li v-for="(e, index) in good1" v-if="index<3" :key="index">
+											<ul class="titleList clearfix">
+												<li>{{e.goodName}}</li>
+												<li>{{e.goodContact}}</li>
+												<li>{{e.goodNumber}}</li>
+												<li :class="{processing:e.goodState === 1}">{{['','驾驶中', '未驾驶'][e.goodState]}}</li>
+												<li>
+													<span>定位</span>
+													<span>详情</span>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<h3 class="item1">市政车信息</h3>
+								<div class="item4"><span></span><input type="text" placeholder="编号 名称" /></div>
+								<div class="item3">
+									<ul>
+										<li class="tableTh">
+											<ul class="titleList clearfix">
+												<li>车辆</li>
+												<li>驾驶人</li>
+												<li>车牌</li>
+												<li>状态
+													<img class="xl_icon" src="images/xl_icon.png" />
+												</li>
+												<li>操作 </li>
+											</ul>
+										</li>
+										<li v-for="(e, index) in good2" v-if="index<3" :key="index">
+											<ul class="titleList clearfix">
+												<li>{{e.goodName}}</li>
+												<li>{{e.goodContact}}</li>
+												<li>{{e.goodNumber}}</li>
+												<li :class="{processing:e.goodState === 1}">{{['','使用中', '未使用'][e.goodState]}}</li>
+												<li>
+													<span>定位</span>
+													<span>详情</span>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<h3 class="item1">垃圾桶定位</h3>
+								<div class="item4"><span></span><input type="text" placeholder="编号 名称" /></div>
+								<div class="item3">
+									<ul>
+										<li class="tableTh">
+											<ul class="titleList clearfix">
+												<li>名称</li>
+												<li>负责人</li>
+												<li>编号</li>
+												<li>状态
+													<img class="xl_icon" src="images/xl_icon.png" />
+												</li>
+												<li>操作 </li>
+											</ul>
+										</li>
+										<li v-for="(e, index) in good3" v-if="index<5" :key="index">
+											<ul class="titleList clearfix">
+												<li>{{e.goodName}}</li>
+												<li>{{e.goodContact}}</li>
+												<li>{{e.goodNumber}}</li>
+												<li :class="{processing:e.goodState === 1}">{{['','异常', '正常'][e.goodState]}}</li>
+												<li>
+													<span>定位</span>
+													<span>详情</span>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<h3 class="item1">购物车定位</h3>
+								<div class="item4"><span></span><input type="text" placeholder="姓名" /></div>
+								<div class="item3">
+									<ul>
+										<li class="tableTh">
+											<ul class="titleList clearfix">
+												<li>名称</li>
+												<li>负责人</li>
+												<li>借用人</li>
+												<li>状态
+													<img class="xl_icon" src="images/xl_icon.png" />
+												</li>
+												<li>操作 </li>
+											</ul>
+										</li>
+										<li v-for="(e, index) in good4" v-if="index<3" :key="index">
+											<ul class="titleList clearfix">
+												<li>{{e.goodName}}</li>
+												<li>{{e.goodContact}}</li>
+												<li>{{e.goodNumber}}</li>
+												<li :class="{processing:e.goodState === 1}">{{['','未归还', '已归还'][e.goodState]}}</li>
+												<li>
+													<span>定位</span>
+													<span>详情</span>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+						<span class="btnRight" id="btnRight"></span>
+					</section>
+				</div>
+			</section>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.dropdown.js"></script>
+		<script type="text/javascript">
+		    $(function() {
+		        $('#cd-dropdown').dropdown({
+		            gutter: 0
+		        });
+		    });
+			
+			window.onload = function() {
+				
+				
+				// 头部导航
+				var navTops = document.getElementsByClassName('nav-top')
+				for(var i = 0; i < navTops.length; i++) {
+					navTops[i].index = i
+					navTops[i].onclick = function() {
+						for(var i = 0; i < navTops.length; i++) {
+							navTops[i].classList.remove('active-icon')
+						}
+						this.classList.add('active-icon')
+						window.location.href = this.dataset.href;
+					}
+				}
+				
+				// 左边显示隐藏
+				var btnLeft = document.getElementById('btnLeft')
+				var itemUl1 = document.getElementById('itemUl1')
+				var left = document.getElementById('left')
+				var lw = left.offsetWidth
+				
+				var clickLeft = true
+				btnLeft.onclick = function() {
+					console.log("左边"+clickLeft)
+					if(clickLeft) {
+						itemUl1.style.width = lw - 50 + 'px'
+						itemUl1.style.opacity = 0
+						btnLeft.style.right = lw - 12 + 'px'
+						clickLeft = false
+					} else {
+						itemUl1.style.opacity = 1
+						left.style.width = '24%'
+						itemUl1.style.width = '100%'
+						btnLeft.style.right = -25 + 'px'
+						clickLeft = true
+					}
+				}
+				
+				// 右边显示隐藏
+				var btnRight = document.getElementById('btnRight')
+				var itemUl2 = document.getElementById('itemUl2')
+				var right = document.getElementById('right')
+				var rw = right.offsetWidth
+				var clickRight = true
+				btnRight.onclick = function() {
+					console.log("右边"+clickRight)
+					if(clickRight) {
+						right.style.width = rw - 50 + 'px'
+						itemUl2.style.opacity = 0
+						btnRight.style.left = rw - 60 + 'px'
+						clickRight = false
+					} else {
+						itemUl2.style.opacity = 1
+						right.style.width = '24%'
+						btnRight.style.left = -25 + 'px'
+						clickRight = true
+					}
+				}
+				
+				// 获取视口的宽度
+				var W = document.documentElement.clientWidth
+				initMapHeight() // 设置高时选择左右侧较高的一侧
+				function initMapHeight() {
+					var allmap = document.getElementById('allmap')
+					var rh = right.offsetHeight
+					var lh = left.offsetHeight
+					if(lh >= rh) {
+						allmap.style.height = lh + 65 + 'px'
+					} else {
+						allmap.style.height = rh + 65 + 'px'
+					}
+				}
+				
+				/** 百度地图开始 踩坑1：百度地图必须放在vue之后，不然无法渲染数据 **/
+				/** 百度地图开始 踩坑4：div必须要display: inline-block;才能正常显示 **/
+				/** 百度地图开始 踩坑5：添加控件一个方法添加一个 **/
+				initMap()
+				function initMap() {
+					var point = new BMap.Point(106.374814,29.60782);
+					var map = new BMap.Map("allmap",{minZoom:6,maxZoom:100,mapType:BMAP_HYBRID_MAP,enableMapClick:false});    // 创建Map实例
+					map.centerAndZoom(point, 17);  // 初始化地图,设置中心点坐标和地图级别
+					
+					/**添加地图类型控件*/
+					map.addControl(new BMap.MapTypeControl({
+						mapTypes:[
+							BMAP_NORMAL_MAP,
+							BMAP_HYBRID_MAP
+						]}));	  
+					map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+					/**添加地图类型控件结束*/
+					
+					/** 添加圆形遮罩 */
+					var circle = new BMap.Circle(point,5000000,{strokeColor:"blue", fillColor: "#0c1e46", fillOpacity: 0.5,strokeWeight:2, strokeOpacity:0.5});
+					map.addOverlay(circle);            //增加圆
+					circle.disableMassClear() //禁止清除
+					/** 添加圆形遮罩结束 */
+					
+					/*** 自定义控件*/
+					// 顶部导航条
+					addTitle(); 
+					function addTitle() {
+						function zoomControl() {
+						  this.defaultAnchor = BMAP_ANCHOR_TOP_RIGHT;
+						  this.defaultOffset = new BMap.Size(0, 0);
+						}
+									
+						// 集成Control类
+						zoomControl.prototype = new BMap.Control();
+						// 实现initialize方法
+						zoomControl.prototype.initialize = function (map) {
+						  // 创建一个DOM元素
+						  var div = document.getElementById("header");
+									
+						  // 添加DOM元素到地图中
+						  map.getContainer().appendChild(div);
+						  return div;
+						}
+						// 创建控件
+						var myZoomCtrl = new zoomControl();
+						map.addControl(myZoomCtrl);
+					  }// 自定义控件添加完成
+					
+					addLeft();
+					function addLeft() {
+						// 定义一个控件类,即function
+						function zoomControl() {
+							// 默认停靠位置和偏移量
+							this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+							this.defaultOffset = new BMap.Size(0, 65);
+						}
+					
+						// 集成Control类
+						zoomControl.prototype = new BMap.Control();
+						// 实现initialize方法
+						zoomControl.prototype.initialize = function (map) {
+							// 创建一个DOM元素
+							var content = document.getElementById("left");
+							
+							// 添加DOM元素到地图中
+							map.getContainer().appendChild(content);
+							return content;
+						}
+						 // 创建控件
+						var myZoomCtrl = new zoomControl();
+						map.addControl(myZoomCtrl);
+					}
+					
+					addRight();
+					function addRight() {
+						// 定义一个控件类,即function
+						function zoomControl() {
+							// 默认停靠位置和偏移量
+							this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
+							this.defaultOffset = new BMap.Size(0, 0);
+						}
+					
+						// 集成Control类
+						zoomControl.prototype = new BMap.Control();
+						// 实现initialize方法
+						zoomControl.prototype.initialize = function (map) {
+							// 创建一个DOM元素
+							var content = document.getElementById("right");
+							
+							// 添加DOM元素到地图中
+							map.getContainer().appendChild(content);
+							return content;
+						}
+						 // 创建控件
+						var myZoomCtrl = new zoomControl();
+						map.addControl(myZoomCtrl);
+					}
+					
+					addMiddle()
+					function addMiddle() {
+						// 定义一个控件类,即function
+						function zoomControl() {
+							// 默认停靠位置和偏移量
+							this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+							this.defaultOffset = new BMap.Size(lw+30, 80);
+						}
+					
+						// 集成Control类
+						zoomControl.prototype = new BMap.Control();
+						// 实现initialize方法
+						zoomControl.prototype.initialize = function (map) {
+							// 创建一个DOM元素
+							var content = document.getElementById("middle");
+							
+							// 添加DOM元素到地图中
+							map.getContainer().appendChild(content);
+							return content;
+						}
+						 // 创建控件
+						var myZoomCtrl = new zoomControl();
+						map.addControl(myZoomCtrl);
+					}
+					
+					/** 自定义控件结束 **/
+					
+					var opts = {
+						width:320,     // 信息窗口宽度
+						height: 170,     // 信息窗口高度
+						enableMessage: true//设置允许信息窗发送短息
+					};
+					var opts1 = {
+						width:320,     // 信息窗口宽度
+						height: 250,     // 信息窗口高度
+						enableMessage: true//设置允许信息窗发送短息
+					};
+					
+					function Obj(point, str, label, icon) {
+						this.point = point;
+						this.str = str;
+						this.label = label;
+						this.icon = icon;
+					}
+					
+					/** 模板1 */
+					function tlp1(d) {
+						return '<div id="moban" style ="width:298px;height:133px; padding: 25px 10px 10px 10px;position: absolute;bottom: 0;left:0px; border: 1px solid #00d585;border-radius:10px;">' +
+							'<table style="color: #fff; font-size: 14px; margin-left: 20px">' +
+							'<tr><td>异常简述：</td><td id="errsValue">'+d.name+'</td></tr>' +
+							'<tr><td>上报设备：</td><td>'+d.name+'</td></tr>' +
+							'<tr><td>发生时间：</td><td>'+d.name+'</td></tr>' +
+							'</table>' +
+							'</div>'
+					}
+					/** 模板2 */
+					function tlp2(d) {
+						return '<div id="moban" style ="width:298px;height:213px; padding: 25px 10px 10px 10px;position: absolute;bottom: 0;left:0px;border: 1px solid #fd9d02;border-radius:10px;">' +
+							'<table style="color: #fff; font-size: 14px; margin-left: 20px">' +
+							'<tr><td>异常简述：</td><td id="errsValue">'+d.name+'</td></tr>' +
+							'<tr><td>上报设备：</td><td>'+d.name+'</td></tr>' +
+							'<tr><td>发生时间：</td><td>'+d.name+'</td></tr>' +
+							'</table>' +
+							'</div>'
+					}
+					
+					//创建自定义覆盖物图标
+					var myIcon = new BMap.Icon("./images/mapIcon/combustible_gas2.png", new BMap.Size(50,50));
+					var myIcon1 = new BMap.Icon("./images/mapIcon/guard_people2.png", new BMap.Size(50,50));
+					
+					var d = {
+						id : 1,
+						name: '模板测试1'
+					}
+					var d1 = {
+						id : 2,
+						name: '模板测试2'
+					}
+					
+					var data_1 = [];
+					data_1.push(new Obj(point, tlp1(d), "", myIcon));
+					addMarker(data_1,opts)
+					
+					var marker2 = new BMap.Marker(new BMap.Point(106.377814,29.60782),{icon:myIcon1});  // 创建标注
+					map.addOverlay(marker2);
+					// marker2.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+					addClickHandler(tlp2(d1), marker2, opts1);
+					
+					 //批量添加Marker并添加显示框
+					 function addMarker(data_info, opts) {
+						for (var i = 0; i < data_info.length; i++) {
+						  var marker = new BMap.Marker(data_info[i].point);
+						  marker.setIcon(data_info[i].icon);
+						  var content = data_info[i].str;
+						  if (data_info[i].label) {
+							marker.setLabel(new BMap.Label(data_info[i].label, {offset: new BMap.Size(20, -10)}));
+						  }
+						  map.addOverlay(marker);
+						  marker.setAnimation(BMAP_ANIMATION_BOUNCE)
+						  addClickHandler(content, marker, opts);
+						}
+					  }
+				
+					  function addClickHandler(content, marker, opts) {
+						marker.addEventListener("click", function (e) {
+							openInfo(content, e, opts)
+						  }
+						);
+					  }
+				
+					  function openInfo(content, e, opts) {
+						var p = e.target;
+						var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+						var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象
+						p.openInfoWindow(infoWindow, point); //开启信息窗口
+						map.panTo(point, true)
+					  }
+					  
+				}
+				/** 百度地图结束 **/
+				
+				// 测试点击下拉框
+				var liNodes = document.querySelectorAll('.cd-dropdown > ul > li')
+				console.log(liNodes)
+				for(var i = 0;i < liNodes.length; i++) {
+					liNodes[i].index = i
+					liNodes[i].addEventListener('click', function() {
+						console.log('点击了下拉框')
+						console.log(this.dataset.value)
+					})
+				}
+				
+				
+				var myChartLeft = ''
+				initEchartsLeft('echartsTable')
+				function initEchartsLeft(e) {
+					myChartLeft = echarts.init(document.getElementById(e));
+					
+					var option = {
+						grid: { // 设置图形大小
+							left: '3%',
+							right: '4%',
+							bottom: '3%',
+							top: '20%',
+							containLabel: true
+						},
+						tooltip: {
+							trigger: 'axis',
+							axisPointer: {
+								type: 'cross',
+								crossStyle: {
+									color: '#999'
+								}
+							}
+						},
+						xAxis: [
+							{
+								type: 'category',
+								data: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+								axisPointer: {
+									type: 'shadow'
+								},
+								axisLabel: {
+								    textStyle: {
+									   color: '#fff'
+								    }
+								}
+							}
+						],
+						yAxis: [
+							{
+								type: 'value',
+								min: 0,
+								max: 250,
+								interval: 50,
+								axisLabel: {
+									formatter: '{value} ml'
+								},
+								axisLabel: {
+								    textStyle: {
+									   color: '#fff'
+								    }
+								}
+							},
+							{
+								type: 'value',
+								min: 0,
+								max: 25,
+								interval: 5,
+								
+							}
+						],
+						series: [
+							{
+								name:'男',
+								type:'bar',
+								data:[110.0, 154.9, 157.0, 223.2, 252.6, 226.7, 235.6, 232.2, 232.6, 201.0, 238.4, 223.3]
+							},
+							{
+								name:'女',
+								type:'line',
+								yAxisIndex: 1,
+								data:[12.0, 14.2, 18.3, 23.5, 26.3, 22.2, 26.3, 23.4, 23.0, 21.5, 24.0, 22.2]
+							}
+						]
+					};
+					myChartLeft.setOption(option)
+				}
+				
+				initPieCharts('pieChart1', 60, 10, '#FE9D01', '#553F27','公务车')
+				initPieCharts('pieChart2', 60, 8, '#095E73', '#01FFFF','市政车')
+				initPieCharts('pieChart3', 60, 30, '#0082FE', '#093773','垃圾桶')
+				initPieCharts('pieChart4', 60, 4, '#4DA7FD', '#1E4070','购物车')
+				function initPieCharts(id, count1, count2, color1, color2,content) {
+					var myChart = echarts.init(document.getElementById(id));
+					var Collagen = Math.round((count2-count1)/count2*100)
+					var option = {
+						grid: { // 设置图形大小
+							left: '3%',
+							right: '4%',
+							bottom: '3%',
+							top: '20%',
+							containLabel: true
+						},
+						tooltip: {},
+						color:[color1, color2],
+						graphic: {
+							type: 'text',
+							left: '36%',
+							top: '40%',
+							style: {
+								text: [
+									content,
+									'  '+count2
+								].join('\n'),
+								// textAlign: 'center',
+								fill: '#cccccc',
+								font: '10px "STHeiti", sans-serif'
+							}
+						},
+
+						series: [
+							{
+								// name:'',
+								type:'pie',
+								radius: ['50%', '70%'],
+								avoidLabelOverlap: false,
+								label: {
+									normal: {
+										show: false,
+										position: 'center'
+									},
+									emphasis: {
+										show: true,
+										textStyle: {
+											fontSize: '30',
+											fontWeight: 'bold'
+										}
+									}
+								},
+
+								data:[
+									{value: count1},
+									{value: count2}
+								]
+							}
+						]
+					};
+					myChart.setOption(option);
+				}
+				
+				window.onresize = function() {
+					myChartLeft.resize()
+				}
+			}
+			
+			
+			// 异步请求来访人员
+	        reqVis()
+	        function reqVis() {
+	            $.ajax({
+	                type : "GET", //提交方式
+	                url : "http://localhost:8080/vis/getVis",//路径
+	                // async: false,
+	                data : {
+	                    page: 1
+	                    ,limit: 10000
+	                },//数据，这里使用的是Json格式进行传输
+	                success: function(result) {//返回数据根据结果进行相应的处理
+	                    if (result) {
+	                        vm.vis = result.data
+	                    } else {
+	                        console.info("出错")
+	                    }
+	                },
+	            });
+	        }
+	        
+	        // 异步请求公务车
+	        reqGood1(1)
+	        function reqGood1(goodType) {
+	            $.ajax({
+	                type : "GET", //提交方式
+	                url : "http://localhost:8080/good/getGood",//路径
+	                // async: false,
+	                data : {
+	                	goodType:goodType,
+	                    page: 1
+	                    ,limit: 10000
+	                },//数据，这里使用的是Json格式进行传输
+	                success: function(result) {//返回数据根据结果进行相应的处理
+	                    if (result) {
+	                        vm.good1 = result.data
+	                    } else {
+	                        console.info("出错")
+	                    }
+	                },
+	            });
+	        }
+			
+			// 异步请求市政车
+	        reqGood2(2)
+	        function reqGood2(goodType) {
+	            $.ajax({
+	                type : "GET", //提交方式
+	                url : "http://localhost:8080/good/getGood",//路径
+	                // async: false,
+	                data : {
+	                	goodType:goodType,
+	                    page: 1
+	                    ,limit: 10000
+	                },//数据，这里使用的是Json格式进行传输
+	                success: function(result) {//返回数据根据结果进行相应的处理
+	                    if (result) {
+	                        vm.good2 = result.data
+	                    } else {
+	                        console.info("出错")
+	                    }
+	                },
+	            });
+	        }
+	        // 异步请求垃圾桶
+	        reqGood3(3)
+	        function reqGood3(goodType) {
+	            $.ajax({
+	                type : "GET", //提交方式
+	                url : "http://localhost:8080/good/getGood",//路径
+	                // async: false,
+	                data : {
+	                	goodType:goodType,
+	                    page: 1
+	                    ,limit: 10000
+	                },//数据，这里使用的是Json格式进行传输
+	                success: function(result) {//返回数据根据结果进行相应的处理
+	                    if (result) {
+	                        vm.good3 = result.data
+	                    } else {
+	                        console.info("出错")
+	                    }
+	                },
+	            });
+	        }
+	        // 异步请求购物车
+	        reqGood4(4)
+	        function reqGood4(goodType) {
+	            $.ajax({
+	                type : "GET", //提交方式
+	                url : "http://localhost:8080/good/getGood",//路径
+	                // async: false,
+	                data : {
+	                	goodType:goodType,
+	                    page: 1
+	                    ,limit: 10000
+	                },//数据，这里使用的是Json格式进行传输
+	                success: function(result) {//返回数据根据结果进行相应的处理
+	                    if (result) {
+	                        vm.good4 = result.data
+	                    } else {
+	                        console.info("出错")
+	                    }
+	                },
+	            });
+	        }
+			
+			/*** ******************************* Vue开始 踩坑3：vue需要放在window.onload函数外，才不会对地图上的控件的点击事件不会造成影响 */
+			var vm;
+			initVue()
+			function initVue() {
+				// 字符串转时间过滤器
+				Vue.filter('dateStr', function (timestamp) {
+					var d = new Date(timestamp );    //根据时间戳生成的时间对象
+					var date =
+						(d.getMonth() + 1) + "-" +
+						(d.getDate()) + " " +
+						(d.getHours()) + ":" +
+						(d.getMinutes()) + ":" +
+						(d.getSeconds());
+					return date
+				})
+				vm = new Vue({
+					el: '#main',
+					data: {
+						isFullScreen: true,
+						vis: [],
+						good1:[],
+						good2:[],
+						good3:[],
+						good4:[]
+					},
+					methods: {
+						fullScreen() {
+							console.log(this.isFullScreen)
+							if(this.isFullScreen) {
+								var el = document.documentElement;
+								var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+								if(typeof rfs != "undefined" && rfs) {
+									rfs.call(el);
+								}else{
+									getMsg("浏览器不支持全屏调用，请使用其他浏览器或按F11键切换全屏！");
+									return;
+								}
+								this.isFullScreen = false
+							} else {
+								if(document.exitFullscreen) {
+									document.exitFullscreen();
+								} else if(document.mozCancelFullScreen) {
+									document.mozCancelFullScreen();
+								} else if(document.webkitCancelFullScreen) {
+									document.webkitCancelFullScreen();
+								} else if(document.msExitFullscreen) {
+									document.msExitFullscreen();
+								}
+								if(typeof cfs != "undefined" && cfs) {
+									cfs.call(el);
+								}
+								this.isFullScreen = true
+							}
+							
+						}
+					},
+					
+					// 钩子函数
+					mounted: function () {
+					
+					},
+					// 监听属性
+					watch: {
+						
+					}
+				});
+					
+			}
+			
+			/** ******************************* Vue完 ***************************************/
+			
+			
+		</script>
+	</body>
+</html>

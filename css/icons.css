@@ -1,0 +1,281 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?be1igf');
+  src:  url('../fonts/icomoon.eot?be1igf#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?be1igf') format('truetype'),
+    url('../fonts/icomoon.woff?be1igf') format('woff'),
+    url('../fonts/icomoon.svg?be1igf#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cd-dropdown span[class^="icon-"]:before, 
+.cd-dropdown span[class*=" icon-"]:before {
+  font-family: 'icomoon';
+  font-style: normal;
+  speak: none;
+  font-weight: normal;
+  position: absolute;
+  font-size: 18px;
+  line-height: 22px;
+  width: 80px;
+  top: 7%;
+  left: 15px;
+}
+
+
+.icon-air-conditioner2:before {
+  content: "\e900";
+  color: #00d585;
+}
+.icon-air-conditionerldpi:before {
+  content: "\e901";
+  color: #00d585;
+}
+.icon-ambulance:before {
+  content: "\e902";
+  color: #fd9d02;
+}
+.icon-ambulance2:before {
+  content: "\e903";
+  color: #fd9d02;
+}
+.icon-camera:before {
+  content: "\e904";
+  color: #fff;
+}
+.icon-City_car:before {
+  content: "\e905";
+  color: #fd9d02;
+}
+.icon-City_car2:before {
+  content: "\e906";
+  color: #fd9d02;
+}
+.icon-combustible_gas:before {
+  content: "\e907";
+  color: #00d585;
+}
+.icon-combustible_gas2:before {
+  content: "\e908";
+  color: #00d585;
+}
+.icon-curtain:before {
+  content: "\e909";
+  color: #00d585;
+}
+.icon-curtain2:before {
+  content: "\e90a";
+  color: #00d585;
+}
+.icon-electronic_bracelet:before {
+  content: "\e90b";
+  color: #00d585;
+}
+.icon-electronic_bracelet2:before {
+  content: "\e90c";
+  color: #00d585;
+}
+.icon-emergency_events:before {
+  content: "\e90d";
+  color: #fff;
+}
+.icon-equipment:before {
+  content: "\e90e";
+  color: #fff;
+}
+.icon-Fire-truck:before {
+  content: "\e90f";
+  color: #fd9d02;
+}
+.icon-Fire-truck2:before {
+  content: "\e910";
+  color: #fd9d02;
+}
+.icon-guard_people:before {
+  content: "\e911";
+  color: #fd9d02;
+}
+.icon-guard_people2:before {
+  content: "\e912";
+  color: #fd9d02;
+}
+.icon-incident:before {
+  content: "\e913";
+  color: #fff;
+}
+.icon-interphone:before {
+  content: "\e914";
+  color: #00d585;
+}
+.icon-interphone2:before {
+  content: "\e915";
+  color: #00d585;
+}
+.icon-Light_smoke:before {
+  content: "\e916";
+  color: #00d585;
+}
+.icon-Light_smoke2:before {
+  content: "\e917";
+  color: #00d585;
+}
+.icon-lighting:before {
+  content: "\e918";
+  color: #00d585;
+}
+.icon-lighting2:before {
+  content: "\e919";
+  color: #00d585;
+}
+.icon-location:before {
+  content: "\e91a";
+  color: #fff;
+}
+.icon-message:before {
+  content: "\e91b";
+  color: #00d585;
+}
+.icon-message2:before {
+  content: "\e91c";
+  color: #00d585;
+}
+.icon-Official_car:before {
+  content: "\e91d";
+  color: #fd9d02;
+}
+.icon-Official_car2:before {
+  content: "\e91e";
+  color: #fd9d02;
+}
+.icon-park:before {
+  content: "\e91f";
+  color: #fff;
+}
+.icon-patrol_wagon:before {
+  content: "\e920";
+  color: #fd9d02;
+}
+.icon-patrol_wagon2:before {
+  content: "\e921";
+  color: #fd9d02;
+}
+.icon-police_car:before {
+  content: "\e922";
+  color: #fd9d02;
+}
+.icon-police_car2:before {
+  content: "\e923";
+  color: #fd9d02;
+}
+.icon-probation_people:before {
+  content: "\e924";
+  color: #fd9d02;
+}
+.icon-probation_people2:before {
+  content: "\e925";
+  color: #fd9d02;
+}
+.icon-school_bus:before {
+  content: "\e926";
+  color: #fd9d02;
+}
+.icon-school_bus2:before {
+  content: "\e927";
+  color: #fd9d02;
+}
+.icon-security_personnel:before {
+  content: "\e928";
+  color: #fd9d02;
+}
+.icon-security_personnel2:before {
+  content: "\e929";
+  color: #fd9d02;
+}
+.icon-service_bus:before {
+  content: "\e92a";
+  color: #fd9d02;
+}
+.icon-service_bus2:before {
+  content: "\e92b";
+  color: #fd9d02;
+}
+.icon-special_people:before {
+  content: "\e92c";
+  color: #fd9d02;
+}
+.icon-special_people2:before {
+  content: "\e92d";
+  color: #fd9d02;
+}
+.icon-staff_people:before {
+  content: "\e92e";
+  color: #fd9d02;
+}
+.icon-staff_people2:before {
+  content: "\e92f";
+  color: #fd9d02;
+}
+.icon-statistics:before {
+  content: "\e930";
+  color: #fff;
+}
+.icon-Street_light:before {
+  content: "\e931";
+  color: #00d585;
+}
+.icon-student:before {
+  content: "\e932";
+  color: #fd9d02;
+}
+.icon-student2:before {
+  content: "\e933";
+  color: #fd9d02;
+}
+.icon-teacher:before {
+  content: "\e934";
+  color: #fd9d02;
+}
+.icon-teacher2:before {
+  content: "\e935";
+  color: #fd9d02;
+}
+.icon-water_level:before {
+  content: "\e936";
+  color: #00d585;
+}
+.icon-water_level2:before {
+  content: "\e937";
+  color: #00d585;
+}
+.icon-water_quality:before {
+  content: "\e938";
+  color: #00d585;
+}
+.icon-water_quality2:before {
+  content: "\e939";
+  color: #00d585;
+}
+.icon-well-lid:before {
+  content: "\e93a";
+  color: #00d585;
+}
+.icon-well_lid2:before {
+  content: "\e93b";
+  color: #00d585;
+}
